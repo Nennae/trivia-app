@@ -36,9 +36,6 @@ Trivia Application is an interactive quiz game where users can test their knowle
 
 https://www.figma.com/design/mM5J43sWCAfLbcYxx8ThdA/Trivia-App-Design?node-id=1-3&t=KQoRSvfNKg8TC34e-1
 
-![Trivia App Design](./assets/design_preview.png)
-
-
 ## 📦 Installation
 ```sh
 # Clone this repository
