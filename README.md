@@ -32,6 +32,10 @@ Trivia Application is an interactive quiz game where users can test their knowle
 - **TypeScript** – Type safety and better development experience
 - **TailwindCSS** – Fast and efficient styling
 
+## API
+
+https://opentdb.com/api_config.php
+
 ## Figma Design 
 
 https://www.figma.com/design/mM5J43sWCAfLbcYxx8ThdA/Trivia-App-Design?node-id=1-3&t=KQoRSvfNKg8TC34e-1
