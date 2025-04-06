@@ -19,11 +19,14 @@
   .select-btn {
     @apply bg-lilac text-dark rounded-md p-2 w-full text-center;
   }
+  .header {
+    @apply flex-space-between p-5 lg:text-5xl;
+  }
 }
 
 @layer base {
   h1 {
-    @apply text-4xl font-bold;
+    @apply text-5xl;
   }
   h2 {
     @apply text-3xl font-semibold;
@@ -44,6 +47,9 @@
 }
 @utility flex-center-column-reverse {
   @apply flex items-center justify-around flex-col-reverse gap-2;
+}
+@utility flex-space-between {
+  @apply flex items-center justify-between;
 }
 
 :root {
