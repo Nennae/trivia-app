@@ -1,9 +1,9 @@
 # Trivia Application
 
-## 📌 Project Description
+## Project Description
 Trivia Application is an interactive quiz game where users can test their knowledge in various categories. The app is built using **Next.js**, **React**, **TypeScript**, and **TailwindCSS** for a modern and fast user experience.
 
-## 🚀 Features
+## Features
 - **Homepage**
   - Displays the app name and description
   - Start button to begin the game
@@ -26,7 +26,7 @@ Trivia Application is an interactive quiz game where users can test their knowle
   - Displays user profile with previous game history
   - Sorting options for game history (Lowest/Highest Score, Newest/Oldest)  
 
-## 🛠️ Tech Stack
+## Tech Stack
 - **Next.js** – Server-side rendering and optimized performance
 - **React** – Component-based UI development
 - **TypeScript** – Type safety and better development experience
@@ -40,7 +40,7 @@ https://opentdb.com/api_config.php
 
 https://www.figma.com/design/mM5J43sWCAfLbcYxx8ThdA/Trivia-App-Design?node-id=1-3&t=KQoRSvfNKg8TC34e-1
 
-## 📦 Installation
+## Installation
 ```sh
 # Clone this repository
 git clone https://github.com/your-repo/trivia-app.git
@@ -53,12 +53,12 @@ npm install
 npm run dev
 ```
 
-## 🎮 Usage
+## Usage
 1. Open the app in your browser.
 2. Select a category and customize your game.
 3. Answer the questions and view your results!
 
-## 🏗️ Contribution
+## Contribution
 We welcome contributions! Follow these steps:
 1. Fork the repository
 2. Create a new branch (`git checkout -b feature-branch`)
@@ -66,7 +66,7 @@ We welcome contributions! Follow these steps:
 4. Push to the branch (`git push origin feature-branch`)
 5. Open a pull request
 
-## 📜 License
+## License
 This project is licensed under the **MIT License**.
 
 ## Getting Started
