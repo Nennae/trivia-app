@@ -4,6 +4,7 @@
   --color-dark: #2b2f73;
   --color-light: #ffffff;
   --color-green: #52ecc5;
+  --color-dark-green: #2D836D;
   --color-lilac: #a19cff;
   --text-color-dark: #2b2f73;
   --text-color-light: #ffffff;
@@ -11,10 +12,13 @@
 
 @layer components {
   .button {
-    @apply bg-green text-dark rounded-md p-2;
+    @apply bg-green text-dark rounded-md p-2 min-w-60;
+    &:hover {
+      @apply bg-dark-green text-light transition-all duration-300;
+    }
   }
   .card {
-    @apply bg-dark text-light dark:bg-light dark:text-dark rounded-4xl p-4  max-w-90 h-60 shadow-lg;
+    @apply bg-dark text-light dark:bg-light dark:text-dark rounded-4xl p-5  max-w-85 min-w-50 h-60 shadow-lg;
   }
   .select-btn {
     @apply bg-lilac text-dark rounded-md p-2 w-full text-center;
@@ -43,10 +47,7 @@
   @apply flex items-center justify-center;
 }
 @utility flex-center-column {
-  @apply flex items-center justify-around flex-col gap-2;
-}
-@utility flex-center-column-reverse {
-  @apply flex items-center justify-around flex-col-reverse gap-2;
+  @apply flex items-center justify-center flex-col gap-10;
 }
 @utility flex-space-between {
   @apply flex items-center justify-between;
