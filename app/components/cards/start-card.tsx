@@ -1,4 +1,4 @@
-import Button from "../buttons/button";
+import Button from "../button/button";
 
 export default function StartCard() {
   return (

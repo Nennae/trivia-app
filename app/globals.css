@@ -6,6 +6,7 @@
   --color-green: #52ecc5;
   --color-dark-green: #2D836D;
   --color-lilac: #a19cff;
+  --color-dark-lilac: #7a7bff;
   --text-color-dark: #2b2f73;
   --text-color-light: #ffffff;
 }
@@ -23,8 +24,11 @@
   .question-card {
     @apply  bg-dark text-light dark:bg-light dark:text-dark rounded-4xl pt-5 md:min-w-150 w-85 min-h-60;
   }
-  .select-btn {
-    @apply bg-lilac text-dark rounded-md p-2 w-full text-center;
+  .answer-btn {
+    @apply bg-lilac text-dark rounded-lg p-2 w-full text-center min-w-85 md:min-w-150;
+    &:hover {
+      @apply bg-dark-lilac text-light transition-all duration-300;
+    }
   }
   .header {
     @apply flex-space-between p-5 lg:text-5xl mb-10;
