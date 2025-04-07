@@ -17,7 +17,7 @@ export default function TriviaPage() {
   }, []);
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="flex-center-column">
       {questions.map((question, index) => (
         <QuestionCard key={index} question={question} />
       ))}

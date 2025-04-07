@@ -17,14 +17,17 @@
       @apply bg-dark-green text-light transition-all duration-300;
     }
   }
-  .card {
-    @apply bg-dark text-light dark:bg-light dark:text-dark rounded-4xl p-5  max-w-85 min-w-50 h-60 shadow-lg;
+  .start-card {
+    @apply bg-dark text-light dark:bg-light dark:text-dark rounded-4xl md:max-w-150 max-w-80 shadow-lg min-h-60 flex-center-column;
+  }
+  .question-card {
+    @apply  bg-dark text-light dark:bg-light dark:text-dark rounded-4xl pt-5 md:min-w-150 w-85 min-h-60;
   }
   .select-btn {
     @apply bg-lilac text-dark rounded-md p-2 w-full text-center;
   }
   .header {
-    @apply flex-space-between p-5 lg:text-5xl;
+    @apply flex-space-between p-5 lg:text-5xl mb-10;
   }
 }
 
@@ -36,10 +39,10 @@
     @apply text-3xl text-center p-7;
   }
   h3 {
-    @apply text-2xl;
+    @apply text-2xl text-center mb-5 pb-5 border-b-1 border-dark;
   }
   p {
-    @apply text-base;
+    @apply md:text-base break-words overflow-hidden text-ellipsis line-clamp-6 p-5;
   }
 }
 
@@ -47,11 +50,12 @@
   @apply flex items-center justify-center;
 }
 @utility flex-center-column {
-  @apply flex items-center justify-center flex-col gap-10;
+  @apply flex items-center justify-center flex-col gap-5;
 }
 @utility flex-space-between {
   @apply flex items-center justify-between;
 }
+
 
 :root {
   --background: #ffffff;
