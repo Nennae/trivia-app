@@ -1,4 +1,3 @@
-import Image from "next/image";
 import StartCard from "./components/cards/start-card";
 
 export default function Home() {

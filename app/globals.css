@@ -25,9 +25,18 @@
     @apply  bg-dark text-light dark:bg-light dark:text-dark rounded-4xl pt-5 md:min-w-150 w-85 min-h-60;
   }
   .answer-btn {
-    @apply bg-lilac text-dark rounded-lg p-2 w-full text-center min-w-85 md:min-w-150;
+    @apply border-1 border-light rounded-lg p-2 w-full text-center min-w-85 md:min-w-150;
     &:hover {
-      @apply bg-dark-lilac text-light transition-all duration-300;
+      @apply bg-lilac text-dark  duration-300;
+    }
+  }
+  .pagination-btns {
+    @apply border-1 border-light p-3 flex items-center;
+    &:hover {
+      @apply bg-lilac text-dark transition-all duration-300;
+      &:disabled {
+        @apply text-gray-500 border-gray-500 bg-dark;
+      }
     }
   }
   .header {
@@ -58,6 +67,9 @@
 }
 @utility flex-space-between {
   @apply flex items-center justify-between;
+}
+@utility flex-space-around {
+  @apply flex items-center justify-around;
 }
 
 

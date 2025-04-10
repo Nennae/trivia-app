@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { fetchQuestions } from "@/actions/fetch-questions";
 import { Questions } from "@/interfaces/questions-interface";
 import QuestionSection from "../components/question-section/question-section";
+import Pagination from "../components/pagination/pagination";
 
 import {
   FaGlobeAmericas,
@@ -35,10 +37,15 @@ import { BiMath } from "react-icons/bi";
 import { TbBrandFunimation } from "react-icons/tb";
 
 export default function TriviaPage() {
+
+  const [showWarning, setShowWarning] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
   const [questions, setQuestions] = useState<Questions[]>([]);
   const [answers, setAnswers] = useState<string[]>([]);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const router = useRouter();
+
 
   useEffect(() => {
     const getQuestions = async () => {
@@ -47,19 +54,56 @@ export default function TriviaPage() {
     };
     getQuestions();
   }, []);
+  
+  useEffect(() => {
+    setSelectedAnswer(null);
+    setIsCorrect(null);
+  }, [currentPage]);
+
+  const isLastQuestion = currentPage === questions.length - 1;
+  
+  const handleNext = () => {
+    if(!selectedAnswer) {
+      setShowWarning(true);
+      return;
+    } if (isLastQuestion && selectedAnswer) {
+      router.push('/scorePage');
+      return;
+    }
+    setShowWarning(false);
+    setCurrentPage((prev) => Math.min(prev + 1, questions.length - 1));
+  };
+
+  const handlePrevious = () => {
+    setCurrentPage((prev) => Math.max(prev - 1, 0));
+  };
 
   return (
     <div className="flex-center-column">
-      {questions.map((question) => (
+      {questions.length > 0 && (
         <QuestionSection
-          key={question.question}
-          questionData={question}
+          key={questions[currentPage].question}
+          questionData={questions[currentPage]}
+          selectedAnswer={selectedAnswer}
           onAnswer={(answer) => {
             setSelectedAnswer(answer);
-            setIsCorrect(answer === question.correct_answer);
+            setIsCorrect(answer === questions[currentPage].correct_answer);
+            setShowWarning(false);
           }}
         />
-      ))}
+      )}
+
+      {showWarning && (
+        <p className="text-red-500 font-medium">
+          Please select answer to proceed
+        </p>
+      )}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={questions.length}
+        onPrevious={handlePrevious}
+        onNext={handleNext}
+      />
     </div>
   );
 }
