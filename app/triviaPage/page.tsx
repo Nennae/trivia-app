@@ -36,6 +36,8 @@ import { BiMath } from "react-icons/bi";
 import { TbBrandFunimation } from "react-icons/tb";
 
 export default function TriviaPage() {
+
+  const [currentPage, setCurrentPage] = useState(0);
   const [questions, setQuestions] = useState<Questions[]>([]);
   const [answers, setAnswers] = useState<string[]>([]);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -51,17 +53,24 @@ export default function TriviaPage() {
 
   return (
     <div className="flex-center-column">
-      {questions.map((question) => (
+      {questions.length > 0 && (
         <QuestionSection
-          key={question.question}
-          questionData={question}
+          key={questions[currentPage].question}
+          questionData={questions[currentPage]}
           onAnswer={(answer) => {
             setSelectedAnswer(answer);
-            setIsCorrect(answer === question.correct_answer);
+            setIsCorrect(answer === questions[currentPage].correct_answer);
           }}
         />
-      ))}
-      <Pagination />
+      )}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={questions.length}
+        onPrevious={() => setCurrentPage((prev) => Math.max(prev - 1, 0))}
+        onNext={() =>
+          setCurrentPage((prev) => Math.min(prev + 1, questions.length - 1))
+        }
+      />
     </div>
   );
 }
