@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { fetchQuestions } from "@/actions/fetch-questions";
 import { Questions } from "@/interfaces/questions-interface";
 import QuestionSection from "../components/question-section/question-section";
@@ -43,6 +44,8 @@ export default function TriviaPage() {
   const [answers, setAnswers] = useState<string[]>([]);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const router = useRouter();
+
 
   useEffect(() => {
     const getQuestions = async () => {
@@ -57,14 +60,20 @@ export default function TriviaPage() {
     setIsCorrect(null);
   }, [currentPage]);
 
+  const isLastQuestion = currentPage === questions.length - 1;
+  
   const handleNext = () => {
     if(!selectedAnswer) {
       setShowWarning(true);
+      return;
+    } if (isLastQuestion && selectedAnswer) {
+      router.push('/scorePage');
       return;
     }
     setShowWarning(false);
     setCurrentPage((prev) => Math.min(prev + 1, questions.length - 1));
   };
+
   const handlePrevious = () => {
     setCurrentPage((prev) => Math.max(prev - 1, 0));
   };
@@ -94,7 +103,6 @@ export default function TriviaPage() {
         totalPages={questions.length}
         onPrevious={handlePrevious}
         onNext={handleNext}
-        disableNext={false}
       />
     </div>
   );

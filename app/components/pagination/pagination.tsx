@@ -1,12 +1,10 @@
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
-import Link from "next/link";
 
 type PaginationProps = {
   currentPage: number;
   totalPages: number;
   onPrevious: () => void;
   onNext: () => void;
-  disableNext?: boolean;
 };
 
 export default function Pagination({
@@ -14,7 +12,6 @@ export default function Pagination({
   totalPages,
   onPrevious,
   onNext,
-  disableNext,
 }: PaginationProps) {
 
   return (
@@ -26,19 +23,13 @@ export default function Pagination({
       >
         <FaChevronLeft />
       </button>
-      <Link
-        href={currentPage === totalPages - 1 ? "/scorePage" : ""}
-        onClick={onNext}
-      >
         <button
-          className="pagination-btns justify-end"
-          disabled={currentPage === totalPages - 1 || disableNext}
+                    className="pagination-btns justify-end"
+                    onClick={onNext}
         >
           {currentPage === totalPages - 1 ? `Final Score ` : ""}
-
           <FaChevronRight />
         </button>
-      </Link>
     </div>
   );
 }
