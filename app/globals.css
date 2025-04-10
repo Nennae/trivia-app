@@ -31,9 +31,12 @@
     }
   }
   .pagination-btns {
-    @apply border-1 border-light p-3 flex;
+    @apply border-1 border-light p-3 flex items-center;
     &:hover {
       @apply bg-lilac text-dark transition-all duration-300;
+      &:disabled {
+        @apply text-gray-500 border-gray-500 bg-dark;
+      }
     }
   }
   .header {
