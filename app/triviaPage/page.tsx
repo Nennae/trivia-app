@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { fetchQuestions } from "@/actions/fetch-questions";
 import { Questions } from "@/interfaces/questions-interface";
 import QuestionSection from "../components/question-section/question-section";
+import Pagination from "../components/pagination/pagination";
 
 import {
   FaGlobeAmericas,
@@ -60,6 +61,7 @@ export default function TriviaPage() {
           }}
         />
       ))}
+      <Pagination />
     </div>
   );
 }

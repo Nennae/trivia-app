@@ -30,6 +30,9 @@
       @apply bg-dark-lilac text-light transition-all duration-300;
     }
   }
+  .pagination-btns {
+    @apply border-1 border-light p-3 flex;
+  }
   .header {
     @apply flex-space-between p-5 lg:text-5xl mb-10;
   }
@@ -58,6 +61,9 @@
 }
 @utility flex-space-between {
   @apply flex items-center justify-between;
+}
+@utility flex-space-around {
+  @apply flex items-center justify-around;
 }
 
 
