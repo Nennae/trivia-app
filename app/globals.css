@@ -25,13 +25,16 @@
     @apply  bg-dark text-light dark:bg-light dark:text-dark rounded-4xl pt-5 md:min-w-150 w-85 min-h-60;
   }
   .answer-btn {
-    @apply bg-lilac text-dark rounded-lg p-2 w-full text-center min-w-85 md:min-w-150;
+    @apply border-1 border-light rounded-lg p-2 w-full text-center min-w-85 md:min-w-150;
     &:hover {
-      @apply bg-dark-lilac text-light transition-all duration-300;
+      @apply bg-lilac text-dark  duration-300;
     }
   }
   .pagination-btns {
     @apply border-1 border-light p-3 flex;
+    &:hover {
+      @apply bg-lilac text-dark transition-all duration-300;
+    }
   }
   .header {
     @apply flex-space-between p-5 lg:text-5xl mb-10;
