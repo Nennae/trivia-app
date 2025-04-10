@@ -37,6 +37,7 @@ import { TbBrandFunimation } from "react-icons/tb";
 
 export default function TriviaPage() {
 
+  const [showWarning, setShowWarning] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [questions, setQuestions] = useState<Questions[]>([]);
   const [answers, setAnswers] = useState<string[]>([]);
@@ -50,6 +51,23 @@ export default function TriviaPage() {
     };
     getQuestions();
   }, []);
+  
+  useEffect(() => {
+    setSelectedAnswer(null);
+    setIsCorrect(null);
+  }, [currentPage]);
+
+  const handleNext = () => {
+    if(!selectedAnswer) {
+      setShowWarning(true);
+      return;
+    }
+    setShowWarning(false);
+    setCurrentPage((prev) => Math.min(prev + 1, questions.length - 1));
+  };
+  const handlePrevious = () => {
+    setCurrentPage((prev) => Math.max(prev - 1, 0));
+  };
 
   return (
     <div className="flex-center-column">
@@ -57,19 +75,26 @@ export default function TriviaPage() {
         <QuestionSection
           key={questions[currentPage].question}
           questionData={questions[currentPage]}
+          selectedAnswer={selectedAnswer}
           onAnswer={(answer) => {
             setSelectedAnswer(answer);
             setIsCorrect(answer === questions[currentPage].correct_answer);
+            setShowWarning(false);
           }}
         />
+      )}
+
+      {showWarning && (
+        <p className="text-red-500 font-medium">
+          Please select answer to proceed
+        </p>
       )}
       <Pagination
         currentPage={currentPage}
         totalPages={questions.length}
-        onPrevious={() => setCurrentPage((prev) => Math.max(prev - 1, 0))}
-        onNext={() =>
-          setCurrentPage((prev) => Math.min(prev + 1, questions.length - 1))
-        }
+        onPrevious={handlePrevious}
+        onNext={handleNext}
+        disableNext={false}
       />
     </div>
   );
