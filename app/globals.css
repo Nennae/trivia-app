@@ -22,7 +22,7 @@
     @apply bg-dark text-light dark:bg-light dark:text-dark rounded-4xl md:max-w-150 max-w-80 shadow-lg min-h-60 flex-center-column;
   }
   .card {
-    @apply bg-dark text-light dark:bg-light dark:text-dark rounded-4xl md:max-w-150 min-w-90 shadow-lg min-h-60 flex-center-column;
+    @apply bg-dark text-light dark:bg-light dark:text-dark rounded-4xl md:min-w-120 min-w-85 shadow-lg min-h-60 flex-center-column p-5;
   }
   .question-card {
     @apply  bg-dark text-light dark:bg-light dark:text-dark rounded-4xl pt-5 md:min-w-150 w-85 min-h-60;
