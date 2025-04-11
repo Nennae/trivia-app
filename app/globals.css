@@ -21,6 +21,9 @@
   .start-card {
     @apply bg-dark text-light dark:bg-light dark:text-dark rounded-4xl md:max-w-150 max-w-80 shadow-lg min-h-60 flex-center-column;
   }
+  .card {
+    @apply bg-dark text-light dark:bg-light dark:text-dark rounded-4xl md:max-w-150 min-w-90 shadow-lg min-h-60 flex-center-column;
+  }
   .question-card {
     @apply  bg-dark text-light dark:bg-light dark:text-dark rounded-4xl pt-5 md:min-w-150 w-85 min-h-60;
   }
@@ -53,6 +56,9 @@
   }
   h3 {
     @apply text-2xl text-center mb-5 pb-5 border-b-1 border-dark;
+  }
+  h4 {
+    @apply text-3xl text-center mb-5 pb-5;
   }
   p {
     @apply md:text-base break-words overflow-hidden text-ellipsis line-clamp-6 p-5;
