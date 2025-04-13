@@ -1,12 +1,12 @@
 import { fetchQuestions } from "@/actions/fetch-questions";
-import QuestionSection from "../components/question-section/question-section";
+import TriviaClientWrapper from "../components/wrapper/trivia-client-wrapper";
 
 export default async function TriviaPage() {
   const questions = await fetchQuestions(10);
 
   return (
     <div className="flex-center-column">
-      <QuestionSection questions={questions} />
+      <TriviaClientWrapper questions={questions} />
     </div>
   );
 }
