@@ -1,47 +1,37 @@
+// components/button/answer-buttons.tsx
 "use client";
 
-import { useState, useEffect, ReactElement } from "react";
-import { Questions } from "@/interfaces/questions-interface";
+import { useState, useEffect } from "react";
+import { useQuiz } from "@/context/QuizContext";
 
-type AnswerButtonsProps = {
-  questions: Questions;
-  onAnswerSelected: (answer: string) => void;
-};
+export default function AnswerButtons() {
+  const { questions, currentPage, userAnswers, setUserAnswer } = useQuiz();
 
-export default function AnswerButtons({
-  questions,
-  onAnswerSelected,
-}: AnswerButtonsProps): ReactElement {
+  const question = questions[currentPage];
   const [shuffledAnswers, setShuffledAnswers] = useState<string[]>([]);
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
-  const shuffleArray = (array: string[]) => {
-    return [...array].sort(() => Math.random() - 0.5);
-  };
+  const selectedAnswer = userAnswers[currentPage] ?? null;
 
   useEffect(() => {
-    const allAnswers = shuffleArray([
-      questions.correct_answer,
-      ...questions.incorrect_answers,
-    ]);
-    setShuffledAnswers(allAnswers);
-    setSelectedAnswer(null); // Återställ val när frågan ändras
-  }, [questions]);
+    const allAnswers = [question.correct_answer, ...question.incorrect_answers];
+    const shuffled = [...allAnswers].sort(() => Math.random() - 0.5);
+    setShuffledAnswers(shuffled);
+  }, [question]);
 
   const handleAnswer = (answer: string) => {
-    setSelectedAnswer(answer);
-    onAnswerSelected(answer);
+    setUserAnswer(currentPage, answer);
   };
 
   return (
     <div className="flex-center-column">
       {shuffledAnswers.map((answer, index) => (
         <button
-          key={`${questions.question}-${index}`}
+          suppressHydrationWarning={true}
+          key={`${question.question}-${index}`}
           onClick={() => handleAnswer(answer)}
           dangerouslySetInnerHTML={{ __html: answer }}
           className={`answer-btn ${
-            selectedAnswer === answer ? "bg-lilac text-dark  duration-300" : ""
+            selectedAnswer === answer ? "bg-lilac text-dark duration-300" : ""
           }`}
         />
       ))}

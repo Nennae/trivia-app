@@ -1,30 +1,39 @@
+// components/pagination/pagination.tsx
+"use client";
+
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import { useQuiz } from "@/context/QuizContext";
+import { useRouter } from "next/navigation";
 
-type PaginationProps = {
-  currentPage: number;
-  totalPages: number;
-  onPrevious: () => void;
-  onNext: () => void;
-  isNextDisabled: boolean;
-  isPreviousDisabled: boolean;
-};
+export default function Pagination() {
+  const { currentPage, setCurrentPage, questions, userAnswers } = useQuiz();
 
-export default function Pagination({
-  currentPage,
-  totalPages,
-  onPrevious,
-  onNext,
-  isNextDisabled,
-  isPreviousDisabled,
-}: PaginationProps) {
+  const router = useRouter();
+
+  const totalPages = questions.length;
   const isLastPage = currentPage === totalPages - 1;
+  const isAnswerSelected = !!userAnswers[currentPage];
+
+  const handlePrevious = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (isLastPage && isAnswerSelected) {
+      router.push("/scorePage");
+    } else if (!isLastPage) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
   return (
     <div className="flex gap-10 mt-3">
       <button
         className="pagination-btns"
-        onClick={onPrevious}
-        disabled={isPreviousDisabled}
+        onClick={handlePrevious}
+        disabled={currentPage === 0}
         aria-label="Föregående fråga"
       >
         <FaChevronLeft />
@@ -32,8 +41,8 @@ export default function Pagination({
 
       <button
         className="pagination-btns justify-end"
-        onClick={onNext}
-        disabled={isNextDisabled}
+        onClick={handleNext}
+        disabled={!isAnswerSelected}
         aria-label="Nästa fråga"
       >
         {isLastPage ? "Final Score" : ""} <FaChevronRight />
