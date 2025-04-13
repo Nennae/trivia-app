@@ -25,7 +25,7 @@ export default function AnswerButtons({
       ...questions.incorrect_answers,
     ]);
     setShuffledAnswers(allAnswers);
-    setSelectedAnswer(null); 
+    setSelectedAnswer(null); // Återställ val när frågan ändras
   }, [questions]);
 
   const handleAnswer = (answer: string) => {
@@ -41,7 +41,7 @@ export default function AnswerButtons({
           onClick={() => handleAnswer(answer)}
           dangerouslySetInnerHTML={{ __html: answer }}
           className={`answer-btn ${
-            selectedAnswer === answer ? "selected" : ""
+            selectedAnswer === answer ? "bg-lilac text-dark  duration-300" : ""
           }`}
         />
       ))}
