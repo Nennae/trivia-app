@@ -1,49 +1,67 @@
-import React, { useEffect, useState } from "react";
+"use client";
+
+import React, { ReactElement, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Questions } from "@/interfaces/questions-interface";
+import Pagination from "../pagination/pagination";
+import QuestionCard from "../cards/question-card";
+import AnswerButtons from "../button/answer-buttons";
 
-type Props = {
-  questionData: Questions;
-  onAnswer: (selectedAnswer: string) => void;
-  selectedAnswer: string | null;
+type QuestionSectionProps = {
+  questions: Questions[];
 };
 
-const shuffleArray = (array: string[]) => {
-  return [...array].sort(() => Math.random() - 0.5);
-};
+export default function QuestionSection({
+  questions,
+}: QuestionSectionProps): ReactElement {
+  const totalPages = questions.length;
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isAnswerSelected, setIsAnswerSelected] = useState(false);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
+  const router = useRouter();
 
-const QuestionSection: React.FC<Props> = ({ questionData, onAnswer, selectedAnswer }) => {
-      const [shuffledAnswers, setShuffledAnswers] = useState<string[]>([]);
+  const isLastPage = currentPage === totalPages - 1;
 
-  useEffect(() => {
-    const allAnswers = shuffleArray([
-      questionData.correct_answer,
-      ...questionData.incorrect_answers,
-    ]);
-    setShuffledAnswers(allAnswers);
-  }, [questionData]);
-      
-       const reformattedCategory = questionData.category.replace(/.*?:\s*/, "");
+  const handlePrevious = () => {
+    if (currentPage > 0) {
+      setCurrentPage((prev) => prev - 1);
+      setIsAnswerSelected(!!userAnswers[currentPage - 1]);
+    }
+  };
 
-      return (
-        <>
-          <div className="question-card">
-            <h3 dangerouslySetInnerHTML={{ __html: reformattedCategory }} />
-            <p dangerouslySetInnerHTML={{ __html: questionData.question }} />
-          </div>
-          <div className="flex-center-column">
-            {shuffledAnswers.map((answer) => (
-              <button
-                key={`${questionData.question}-${answer}`}
-                onClick={() => onAnswer(answer)}
-                dangerouslySetInnerHTML={{ __html: answer }}
-                className={`answer-btn ${
-                  selectedAnswer === answer ? "selected" : ""
-                }`}
-              />
-            ))}
-          </div>
-        </>
-      );
-};
+  const handleNext = () => {
+    if (isLastPage && isAnswerSelected) {
+      router.push("/scorePage");
+    } else if (!isLastPage) {
+      setCurrentPage((prev) => prev + 1);
+      setIsAnswerSelected(!!userAnswers[currentPage + 1]);
+    }
+  };
 
-export default QuestionSection;
+  const handleAnswerSelected = (answer: string) => {
+    const updatedAnswers = [...userAnswers];
+    updatedAnswers[currentPage] = answer;
+    setUserAnswers(updatedAnswers);
+    setIsAnswerSelected(true);
+  };
+
+  return (
+    <>
+      <QuestionCard questions={questions[currentPage]} />
+      <AnswerButtons
+        questions={questions[currentPage]}
+        onAnswerSelected={handleAnswerSelected}
+      />
+      <div className="flex-center-column">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPrevious={handlePrevious}
+          onNext={handleNext}
+          isNextDisabled={!isAnswerSelected}
+          isPreviousDisabled={currentPage === 0}
+        />
+      </div>
+    </>
+  );
+}
