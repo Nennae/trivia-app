@@ -1,3 +1,4 @@
+import { QuizProvider } from "@/context/QuizContext";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
@@ -27,7 +28,7 @@ export default function RootLayout({
         className={`${poppins.variable} antialiased`}
       >
         <Header />
-        {children}
+        <QuizProvider>{children}</QuizProvider>
       </body>
     </html>
   );
