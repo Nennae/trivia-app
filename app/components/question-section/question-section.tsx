@@ -47,7 +47,12 @@ export default function QuestionSection({
 
   return (
     <>
-      <QuestionCard questions={questions[currentPage]} />
+      <div>
+        <span className="block mb-2 p-5">
+          {currentPage + 1} / {totalPages}
+        </span>
+        <QuestionCard questions={questions[currentPage]} />
+      </div>
       <AnswerButtons
         questions={questions[currentPage]}
         onAnswerSelected={handleAnswerSelected}
