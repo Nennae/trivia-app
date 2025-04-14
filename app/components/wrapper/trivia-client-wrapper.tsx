@@ -17,5 +17,5 @@ export default function TriviaClientWrapper({ questions }: Props) {
     setQuestions(questions);
   }, []);
 
-  return <QuestionSection />;
+  return null;
 }

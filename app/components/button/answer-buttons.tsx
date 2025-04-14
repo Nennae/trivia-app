@@ -1,13 +1,17 @@
-// components/button/answer-buttons.tsx
 "use client";
 
 import { useState, useEffect } from "react";
 import { useQuiz } from "@/context/QuizContext";
+import { Questions } from "@/interfaces/questions-interface";
 
-export default function AnswerButtons() {
-  const { questions, currentPage, userAnswers, setUserAnswer } = useQuiz();
+interface AnswerButtonsProps {
+  question: Questions;
+}
 
-  const question = questions[currentPage];
+export default function AnswerButtons({ question }: AnswerButtonsProps) {
+  console.log(question);
+  const { currentPage, userAnswers, setUserAnswer} = useQuiz();
+  // const question = questions[currentPage];
   const [shuffledAnswers, setShuffledAnswers] = useState<string[]>([]);
 
   const selectedAnswer = userAnswers[currentPage] ?? null;

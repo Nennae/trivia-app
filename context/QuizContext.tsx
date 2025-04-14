@@ -30,6 +30,7 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
       const [userAnswers, setUserAnswers] = useState<string[]>([]);
       const [currentPage, setCurrentPage] = useState(0);
 
+
       const setUserAnswer = (index: number, answer: string) => {
             setUserAnswers((prev) => {
                   const updated = [...prev];
