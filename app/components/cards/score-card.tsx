@@ -9,7 +9,7 @@ export default function ScoreCard() {
   return (
     <div className="card">
       <h4>You scored:</h4>
-      <h4 className="font-bold">{getScore()} / {questions.length}</h4>
+      <p className="font-bold text-3xl">{getScore()} / {questions.length}</p>
       <Button />
     </div>
   );
