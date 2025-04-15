@@ -33,6 +33,9 @@
       @apply bg-lilac text-dark  duration-300;
     }
   }
+   .results-btn {
+      @apply flex justify-end  gap-20 border-1 border-light p-2 w-full text-center min-w-80 md:min-w-150;
+    }
   .pagination-btns {
     @apply border-1 border-light p-3 flex items-center;
     &:hover {
