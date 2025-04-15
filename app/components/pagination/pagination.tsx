@@ -1,4 +1,3 @@
-// components/pagination/pagination.tsx
 "use client";
 
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
@@ -34,7 +33,7 @@ export default function Pagination() {
         className="pagination-btns"
         onClick={handlePrevious}
         disabled={currentPage === 0}
-        aria-label="Föregående fråga"
+        aria-label="Previous question"
       >
         <FaChevronLeft />
       </button>
@@ -43,7 +42,7 @@ export default function Pagination() {
         className="pagination-btns justify-end"
         onClick={handleNext}
         disabled={!isAnswerSelected}
-        aria-label="Nästa fråga"
+        aria-label="Next question"
       >
         {isLastPage ? "Final Score" : ""} <FaChevronRight />
       </button>
