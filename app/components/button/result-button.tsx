@@ -1,6 +1,7 @@
 "use client";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useState } from "react";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import ResultDetails from "../result-details/result-details";
 
 export default function ResultButton() {
   const [showDetails, setShowDetails] = useState(false);
@@ -15,7 +16,10 @@ export default function ResultButton() {
         {showDetails ? (
           <FaChevronUp className="self-center" />
         ) : (
-          <FaChevronDown className="self-center" />
+            <>
+              <FaChevronDown className="self-center" />
+              {showDetails && <ResultDetails />}
+            </>
         )}
       </button>
     </div>
