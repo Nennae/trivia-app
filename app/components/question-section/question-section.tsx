@@ -12,6 +12,7 @@ export default function QuestionSection() {
 
   return (
     <>
+      <p>{currentPage + 1} / {questions.length}</p>
       <QuestionCard questions={questions[currentPage]} />
       <AnswerButtons />
       <div className="flex-center-column">

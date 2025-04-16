@@ -28,7 +28,7 @@ export default function Pagination() {
   };
 
   return (
-    <div className="flex gap-10 mt-3">
+    <div className="flex gap-10 mt-3 mb-20">
       <button
         className="pagination-btns"
         onClick={handlePrevious}
