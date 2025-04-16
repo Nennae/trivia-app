@@ -27,13 +27,6 @@ import { PiBooksLight } from "react-icons/pi";
 import { BiMath } from "react-icons/bi";
 import { TbBrandFunimation } from "react-icons/tb";
 
-
-
 export default function Icons() {
-  return (
-    <div>
-      
-    </div>
-  )
+  return <div></div>;
 }
-

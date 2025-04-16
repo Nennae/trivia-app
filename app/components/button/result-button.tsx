@@ -15,7 +15,7 @@ export default function ResultButton() {
         {showDetails ? (
           <FaChevronUp className="self-center" />
         ) : (
-              <FaChevronDown className="self-center" />
+          <FaChevronDown className="self-center" />
         )}
       </button>
     </div>
