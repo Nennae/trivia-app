@@ -67,7 +67,7 @@ body {
     @apply flex-space-between p-5 lg:text-5xl mb-5;
   }
   .results-span {
-    @apply border-1 border-dark dark:border-dark p-3 rounded-md min-w-60 inline-flex justify-between;
+    @apply border-1 border-dark dark:border-light p-3 rounded-md min-w-50 inline-flex justify-between;
   }
 }
 
