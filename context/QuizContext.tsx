@@ -1,11 +1,11 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
-import { Questions } from "@/interfaces/questions-interface";
+import { Question } from "@/interfaces/question-interface";
 
 type QuizContextType = {
-  questions: Questions[];
-  setQuestions: (questions: Questions[]) => void;
+  questions: Question[];
+  setQuestions: (questions: Question[]) => void;
   userAnswers: string[];
   setUserAnswer: (index: number, answer: string) => void;
   currentPage: number;
@@ -33,7 +33,7 @@ export function useQuiz() {
 }
 
 export function QuizProvider({ children }: { children: React.ReactNode }) {
-  const [questions, setQuestions] = useState<Questions[]>([]);
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [showDetails, setShowDetails] = useState(false);
