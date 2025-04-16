@@ -34,7 +34,7 @@
     }
   }
    .results-btn {
-      @apply flex justify-end  gap-20 border-1 border-light p-2 w-full text-center min-w-80 md:min-w-150;
+      @apply flex justify-end  gap-20 border-1 border-light p-2 w-full text-center min-w-80 md:min-w-115 md:justify-around;
     }
   .pagination-btns {
     @apply border-1 border-light p-3 flex items-center;
@@ -46,9 +46,13 @@
     }
   }
   .header {
-    @apply flex-space-between p-5 lg:text-5xl mb-10;
+    @apply flex-space-between p-5 lg:text-5xl mb-5;
+  }
+  .results-span {
+    @apply border-1 border-light p-3 rounded-md min-w-60 inline-flex justify-between;
   }
 }
+
 
 @layer base {
   h1 {
