@@ -8,7 +8,7 @@ import Pagination from "../pagination/pagination";
 export default function QuestionSection() {
   const { questions, currentPage } = useQuiz();
 
-  if (!questions.length) return <p>Laddar frågor...</p>;
+  if (!questions.length) return <p>Loading questions...</p>;
 
   return (
     <>

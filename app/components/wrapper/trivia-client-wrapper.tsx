@@ -2,11 +2,11 @@
 
 import { useEffect } from "react";
 import { useQuiz } from "@/context/QuizContext";
-import { Questions } from "@/interfaces/questions-interface";
+import { Question } from "@/interfaces/question-interface";
 import QuestionSection from "../question-section/question-section";
 
 type Props = {
-  questions: Questions[];
+  questions: Question[];
 };
 
 export default function TriviaClientWrapper({ questions }: Props) {
