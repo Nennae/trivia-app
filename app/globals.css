@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+:root {
+  --background: #ffffff;
+  --foreground: #2b2f73;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--color-dark);
+    --foreground: var(--color-light);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: --font-poppins, sans-serif;
+}
+
 @theme {
   --color-dark: #2b2f73;
   --color-light: #ffffff;
@@ -19,29 +37,29 @@
     }
   }
   .start-card {
-    @apply bg-dark text-light dark:bg-light dark:text-dark rounded-4xl md:max-w-150 max-w-80 shadow-lg min-h-60 flex-center-column;
+    @apply bg-dark text-light dark-mode-style rounded-4xl md:max-w-150 max-w-80 shadow-lg min-h-60 flex-center-column;
   }
-  .card {
-    @apply bg-dark text-light dark:bg-light dark:text-dark rounded-4xl md:min-w-120 min-w-85 shadow-lg min-h-60 flex-center-column p-5;
+  .score-card {
+    @apply bg-dark text-light dark-mode-style rounded-4xl md:min-w-120 min-w-85 shadow-lg min-h-60 flex-center-column p-5;
   }
   .question-card {
-    @apply bg-dark text-light dark:bg-light dark:text-dark rounded-4xl pt-5 md:min-w-150 w-85 min-h-60;
+    @apply bg-dark text-light dark-mode-style rounded-4xl pt-5 md:min-w-150 w-85 min-h-60;
   }
   .answer-btn {
-    @apply border-1 border-light rounded-lg p-2 w-full text-center min-w-85 md:min-w-150;
+    @apply border-1 border-dark dark:border-light  rounded-lg p-2 w-full text-center min-w-85 md:min-w-150;
     &:hover {
       @apply bg-lilac text-dark  duration-300;
     }
   }
   .results-btn {
-    @apply flex justify-end  gap-20 border-1 border-light p-2 w-full text-center min-w-80 md:min-w-115 md:justify-around;
+    @apply flex justify-end  gap-20 border-1 border-dark dark:border-light p-2 w-full text-center min-w-80 md:min-w-115 md:justify-around;
   }
   .pagination-btns {
-    @apply border-1 border-light p-3 flex items-center;
+    @apply border-1 border-dark dark:border-light p-3 flex items-center;
     &:hover {
-      @apply bg-lilac text-dark transition-all duration-300;
+      @apply bg-dark dark:bg-lilac dark:text-dark text-light transition-all duration-300;
       &:disabled {
-        @apply text-gray-500 border-gray-500 bg-dark;
+        @apply text-gray-500 border-gray-500 bg-gray-200 dark:bg-gray-400 dark:text-gray-600;
       }
     }
   }
@@ -49,7 +67,7 @@
     @apply flex-space-between p-5 lg:text-5xl mb-5;
   }
   .results-span {
-    @apply border-1 border-light p-3 rounded-md min-w-60 inline-flex justify-between;
+    @apply border-1 border-dark dark:border-dark p-3 rounded-md min-w-60 inline-flex justify-between;
   }
 }
 
@@ -61,7 +79,7 @@
     @apply text-3xl text-center p-7;
   }
   h3 {
-    @apply text-2xl text-center mb-5 pb-5 border-b-1 border-dark;
+    @apply text-2xl text-center mb-5 pb-5 border-b-1 border-light dark:border-dark;
   }
   h4 {
     @apply text-3xl text-center mb-5 pb-5;
@@ -83,26 +101,6 @@
 @utility flex-space-around {
   @apply flex items-center justify-around;
 }
-
-:root {
-  --background: #ffffff;
-  --foreground: #2b2f73;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #2b2f73;
-    --foreground: #ffffff;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: --font-poppins, sans-serif;
+@utility dark-mode-style {
+  @apply dark:bg-light dark:text-dark dark:border-light;
 }
