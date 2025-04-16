@@ -2,7 +2,7 @@
 
 import ScoreCard from "../components/cards/score-card"
 import ResultButton from "../components/button/result-button"
-import ResultDetails from "../components/result-detail/result-details"
+import ResultDetails from "../components/result-details/result-details"
 import { useQuiz } from "@/context/QuizContext";
 
 export default function ScorePage(){
