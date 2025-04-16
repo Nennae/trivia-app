@@ -1,25 +1,21 @@
 "use client";
-import { useState } from "react";
+import { useQuiz } from "@/context/QuizContext";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import ResultDetails from "../result-details/result-details";
 
 export default function ResultButton() {
-  const [showDetails, setShowDetails] = useState(false);
+  const { showDetails, setShowDetails } = useQuiz();
 
   return (
     <div>
       <button
         className="results-btn"
-        onClick={() => setShowDetails((prev) => !prev)}
+        onClick={() => setShowDetails(!showDetails)}
       >
-        {showDetails ? "Hide Details" : "Show Details"}
+        {showDetails ? "Hide Game Details" : "Show Game Details"}
         {showDetails ? (
           <FaChevronUp className="self-center" />
         ) : (
-            <>
               <FaChevronDown className="self-center" />
-              {showDetails && <ResultDetails />}
-            </>
         )}
       </button>
     </div>

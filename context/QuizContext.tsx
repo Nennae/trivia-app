@@ -4,15 +4,23 @@ import { createContext, useContext, useState } from "react";
 import { Questions } from "@/interfaces/questions-interface";
 
 type QuizContextType = {
-      questions: Questions[];
-      setQuestions: (questions: Questions[]) => void;
-      userAnswers: string[];
-      setUserAnswer: (index: number, answer: string) => void;
-      currentPage: number;
-      setCurrentPage: (page: number) => void;
-      resetQuiz: () => void;
-      getScore: () => number;
-}
+  questions: Questions[];
+  setQuestions: (questions: Questions[]) => void;
+  userAnswers: string[];
+  setUserAnswer: (index: number, answer: string) => void;
+  currentPage: number;
+  setCurrentPage: (page: number) => void;
+  resetQuiz: () => void;
+  getScore: () => number;
+  getUserAnswers: () => {
+    questionText: string;
+    answer: string;
+    correctAnswer: string;
+    isCorrect: boolean;
+  }[];
+  showDetails: boolean;
+  setShowDetails: (show: boolean) => void;
+};
 
 const QuizContext = createContext<QuizContextType | undefined>(undefined);
 
@@ -29,6 +37,7 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
       const [questions, setQuestions] = useState<Questions[]>([]);
       const [userAnswers, setUserAnswers] = useState<string[]>([]);
       const [currentPage, setCurrentPage] = useState(0);
+      const [showDetails, setShowDetails] = useState(false);
 
       const setUserAnswer = (index: number, answer: string) => {
             setUserAnswers((prev) => {
@@ -40,14 +49,29 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
 
       const getScore = () => {
             return userAnswers.reduce((acc, answer, index) => {
-              return answer === questions[index].correct_answer ? acc + 1 : acc;
+                  return answer === questions[index].correct_answer ? acc + 1 : acc;
             }, 0);
+      };
+
+      
+      const getUserAnswers = () => {
+            return userAnswers.map((answer, index) => {
+                  const question = questions[index];
+                  const correctAnswer = question.correct_answer;
+                  return {
+                    questionText: question.question,
+                    answer,
+                    correctAnswer,
+                    isCorrect: answer === correctAnswer,
+                  };
+            });
       };
 
       const resetQuiz = () => {
             setQuestions([]);
             setUserAnswers([]);
             setCurrentPage(0);
+            setShowDetails(false);
       };
       
       return (
@@ -60,7 +84,10 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
                   currentPage,
                   setCurrentPage,
                   resetQuiz,
-                  getScore,
+                        getScore,
+                        getUserAnswers,
+                  showDetails,
+                  setShowDetails,
             }}
       >
             {children}
