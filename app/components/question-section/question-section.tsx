@@ -13,7 +13,9 @@ export default function QuestionSection() {
   return (
     <>
       <p>
-        {currentPage + 1} / {questions.length}
+        <strong>
+          {currentPage + 1} / {questions.length}
+        </strong>
       </p>
       <QuestionCard questions={questions[currentPage]} />
       <AnswerButtons />

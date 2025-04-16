@@ -14,7 +14,7 @@ export default function ResultDetails() {
     <div className="mb-10 max-w-700">
       <ul className="flex-col">
         {userAnswers.map((item, index) => (
-          <li className="border-b-1 border-light" key={index}>
+          <li className="border-b-1 border-dark dark:border-light" key={index}>
             <p>
               <strong>
                 {index + 1} / {totalPages}
