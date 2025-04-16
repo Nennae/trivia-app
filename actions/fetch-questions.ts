@@ -9,7 +9,7 @@ export const fetchQuestions = async (amount: number) => {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-        return data.results;
+    return data.results;
   } catch (error) {
     console.error("Error fetching questions:", error);
     throw error;

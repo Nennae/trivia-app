@@ -4,7 +4,7 @@
   --color-dark: #2b2f73;
   --color-light: #ffffff;
   --color-green: #52ecc5;
-  --color-dark-green: #2D836D;
+  --color-dark-green: #2d836d;
   --color-lilac: #a19cff;
   --color-dark-lilac: #7a7bff;
   --text-color-dark: #2b2f73;
@@ -25,7 +25,7 @@
     @apply bg-dark text-light dark:bg-light dark:text-dark rounded-4xl md:min-w-120 min-w-85 shadow-lg min-h-60 flex-center-column p-5;
   }
   .question-card {
-    @apply  bg-dark text-light dark:bg-light dark:text-dark rounded-4xl pt-5 md:min-w-150 w-85 min-h-60;
+    @apply bg-dark text-light dark:bg-light dark:text-dark rounded-4xl pt-5 md:min-w-150 w-85 min-h-60;
   }
   .answer-btn {
     @apply border-1 border-light rounded-lg p-2 w-full text-center min-w-85 md:min-w-150;
@@ -33,9 +33,9 @@
       @apply bg-lilac text-dark  duration-300;
     }
   }
-   .results-btn {
-      @apply flex justify-end  gap-20 border-1 border-light p-2 w-full text-center min-w-80 md:min-w-115 md:justify-around;
-    }
+  .results-btn {
+    @apply flex justify-end  gap-20 border-1 border-light p-2 w-full text-center min-w-80 md:min-w-115 md:justify-around;
+  }
   .pagination-btns {
     @apply border-1 border-light p-3 flex items-center;
     &:hover {
@@ -52,7 +52,6 @@
     @apply border-1 border-light p-3 rounded-md min-w-60 inline-flex justify-between;
   }
 }
-
 
 @layer base {
   h1 {
@@ -84,7 +83,6 @@
 @utility flex-space-around {
   @apply flex items-center justify-around;
 }
-
 
 :root {
   --background: #ffffff;
