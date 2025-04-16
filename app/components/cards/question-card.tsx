@@ -1,6 +1,8 @@
-import { Questions } from "@/interfaces/questions-interface";
+import { Question } from "@/interfaces/question-interface";
 
-export default function QuestionCard({ questions }: { questions: Questions }) {
+export default function QuestionCard({ questions }: { questions: Question }) {
+  // Removes characters from : to the beggining of the string
+  // and replaces them with an empty string
   const reformattedCategory = questions.category.replace(/.*?:\s*/, "");
 
   return (
