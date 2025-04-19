@@ -8,7 +8,14 @@ import Pagination from "../pagination/pagination";
 export default function QuestionSection() {
   const { questions, currentPage } = useQuiz();
 
-  if (!questions.length) return <p>Loading questions...</p>;
+  const question = questions[currentPage];
+  if (!questions.length || !question) {
+    return (
+      <div className="flex-center-column mt-10">
+        <p>Loading quiz...</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -17,7 +24,7 @@ export default function QuestionSection() {
           {currentPage + 1} / {questions.length}
         </strong>
       </p>
-      <QuestionCard questions={questions[currentPage]} />
+      <QuestionCard />
       <AnswerButtons />
       <div className="flex-center-column">
         <Pagination />
