@@ -10,7 +10,6 @@ type QuizContextType = {
   setUserAnswer: (index: number, answer: string) => void;
   currentPage: number;
   setCurrentPage: (page: number) => void;
-  resetQuiz: () => void;
   getScore: () => number;
   getUserAnswers: () => {
     questionText: string;
@@ -65,13 +64,6 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
     });
   };
 
-  const resetQuiz = () => {
-    setQuestions([]);
-    setUserAnswers([]);
-    setCurrentPage(0);
-    setShowDetails(false);
-  };
-
   return (
     <QuizContext.Provider
       value={{
@@ -81,7 +73,6 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
         setUserAnswer,
         currentPage,
         setCurrentPage,
-        resetQuiz,
         getScore,
         getUserAnswers,
         showDetails,
