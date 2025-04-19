@@ -65,7 +65,6 @@ export default function Icons({
 }) {
   const iconNames = reformatCategoryNameForIcons(categories);
   const icon = categoryIcons[iconNames];
-  console.log(iconNames);
 
   return <div className="question-card-icons">{icon}</div>;
 }
