@@ -9,14 +9,17 @@ export default function AnswerButtons() {
 
   const question = questions[currentPage];
   const [shuffledAnswers, setShuffledAnswers] = useState<string[]>([]);
-
   const selectedAnswer = userAnswers[currentPage] ?? null;
 
   useEffect(() => {
+    if (!question) return;
+
     const allAnswers = [question.correct_answer, ...question.incorrect_answers];
     const shuffled = [...allAnswers].sort(() => Math.random() - 0.5);
     setShuffledAnswers(shuffled);
   }, [question]);
+
+  if (!question) return null;
 
   const handleAnswer = (answer: string) => {
     setUserAnswer(currentPage, answer);
