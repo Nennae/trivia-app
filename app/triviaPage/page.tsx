@@ -1,12 +1,24 @@
-import { fetchQuestions } from "@/actions/fetch-questions";
-import TriviaClientWrapper from "../components/wrapper/trivia-client-wrapper";
+"use client";
 
-export default async function TriviaPage() {
-  const questions = await fetchQuestions(10);
+import { fetchQuestions } from "@/actions/fetch-questions";
+import { useQuiz } from "@/context/QuizContext";
+import { useEffect } from "react";
+import QuestionSection from "../components/question-section/question-section";
+
+export default function TriviaPage() {
+  const { setQuestions } = useQuiz();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const questions = await fetchQuestions(10);
+      setQuestions(questions);
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="flex-center-column">
-      <TriviaClientWrapper questions={questions} />
+      <QuestionSection />
     </div>
   );
 }
