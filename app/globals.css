@@ -69,6 +69,12 @@ body {
   .results-span {
     @apply border-1 border-dark dark:border-light p-3 rounded-md min-w-50 inline-flex justify-between;
   }
+  .question-card-icons {
+    @apply text-4xl content-end;
+  }
+  .question-card-header {
+    @apply flex-center gap-3 p-5 mb-5 pb-5 border-b-1 border-light dark:border-dark;
+  }
 }
 
 @layer base {
@@ -79,7 +85,7 @@ body {
     @apply text-3xl text-center p-7;
   }
   h3 {
-    @apply text-2xl text-center mb-5 pb-5 border-b-1 border-light dark:border-dark;
+    @apply text-2xl text-center;
   }
   h4 {
     @apply text-3xl text-center mb-5 pb-5;
