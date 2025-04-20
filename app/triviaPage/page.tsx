@@ -6,7 +6,11 @@ import { useEffect } from "react";
 import QuestionSection from "../components/question-section/question-section";
 
 export default function TriviaPage() {
-  const { setQuestions } = useQuiz();
+  const { setQuestions, resetQuiz } = useQuiz();
+
+  useEffect(() => {
+    resetQuiz();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {

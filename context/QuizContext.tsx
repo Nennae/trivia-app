@@ -19,6 +19,7 @@ type QuizContextType = {
   }[];
   showDetails: boolean;
   setShowDetails: (show: boolean) => void;
+  resetQuiz: () => void;  
 };
 
 const QuizContext = createContext<QuizContextType | undefined>(undefined);
@@ -51,6 +52,13 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
     }, 0);
   };
 
+  const resetQuiz = () => {
+    setQuestions([]);
+    setUserAnswers([]);
+    setCurrentPage(0);
+    setShowDetails(false);
+  }
+
   const getUserAnswers = () => {
     return userAnswers.map((answer, index) => {
       const question = questions[index];
@@ -77,6 +85,7 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
         getUserAnswers,
         showDetails,
         setShowDetails,
+        resetQuiz,
       }}
     >
       {children}
