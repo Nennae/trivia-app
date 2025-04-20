@@ -36,7 +36,7 @@ const categoryIcons: Record<string, ReactElement> = {
   books: <PiBooksLight />,
   film: <FaFilm />,
   music: <IoMusicalNotesOutline />,
-  musicalstheater: <FaTheaterMasks />,
+  musicalstheatres: <FaTheaterMasks />,
   television: <LuTv />,
   videogames: <IoGameControllerOutline />,
   boardgames: <FaChessBoard />,
@@ -66,5 +66,5 @@ export default function Icons({
   const iconNames = reformatCategoryNameForIcons(categories);
   const icon = categoryIcons[iconNames];
 
-  return <div className="question-card-icons">{icon}</div>;
+  return <div className="question-card-icons category-icons">{icon}</div>;
 }
