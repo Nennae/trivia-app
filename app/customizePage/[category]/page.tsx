@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { useQuiz } from "@/context/QuizContext";
 import Icons from "../../components/icons/icons";
 import { reformatCategoryName } from "@/utils/reformatStrings";
+import DifficultySelect from "@/app/components/dificulty-select/difficulty-select";
 
 export default function CustomizePage() {
   const params = useParams();
@@ -29,6 +30,9 @@ export default function CustomizePage() {
           <h3>{selectedCategory}</h3>
         </div>
       )}
+      <div className="flex-center">
+        <DifficultySelect />
+      </div>
     </div>
   );
 }
