@@ -73,6 +73,7 @@ export default function CategoryPanel({}: { name: Category[] }) {
       </div>
       <button
         onClick={handleContinueClick}
+        aria-label="continue to customize page"
         disabled={selectedIndex === null}
         className="gap-2 mb-10 continue-btn md:min-w-50 md:flex-space-between"
         type="button"

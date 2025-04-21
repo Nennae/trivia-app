@@ -29,6 +29,7 @@ export default function AnswerButtons() {
     <div className="flex-center-column">
       {shuffledAnswers.map((answer, index) => (
         <button
+          aria-label={`answer option: ${answer}`}
           suppressHydrationWarning={true}
           key={`${question.question}-${index}`}
           onClick={() => handleAnswer(answer)}

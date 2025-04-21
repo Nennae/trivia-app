@@ -31,18 +31,20 @@ export default function Pagination() {
     <div className="flex gap-10 mt-3 mb-20">
       <button
         className="pagination-btns"
+        aria-label="Previous question"
+        type="button"
         onClick={handlePrevious}
         disabled={currentPage === 0}
-        aria-label="Previous question"
       >
         <FaChevronLeft />
       </button>
 
       <button
         className="pagination-btns justify-end"
+        aria-label="Next question"
+        type="button"
         onClick={handleNext}
         disabled={!isAnswerSelected}
-        aria-label="Next question"
       >
         {isLastPage ? "Final Score" : ""} <FaChevronRight />
       </button>

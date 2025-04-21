@@ -11,10 +11,10 @@ export default function Button() {
 
   return (
     <div>
-      <button className="button" type="button" onClick={handleClick}>
+      <button className="button" type="button" aria-label="start playing" onClick={handleClick}>
         {typeof window !== "undefined" &&
         window.location.pathname === "/triviaPage"
-          ? "Play Aagin"
+          ? "Play Again"
           : "Start Playing"}
       </button>
     </div>

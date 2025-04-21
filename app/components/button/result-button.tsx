@@ -9,6 +9,8 @@ export default function ResultButton() {
     <div>
       <button
         className="results-btn"
+        aria-label="show game details"
+        type="button"
         onClick={() => setShowDetails(!showDetails)}
       >
         {showDetails ? "Hide Game Details" : "Show Game Details"}
