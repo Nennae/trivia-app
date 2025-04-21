@@ -15,9 +15,9 @@ export default function CategoryPanel({}: { name: Category[] }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const router = useRouter();
 
-   const formattedCategories = categories.map((category) =>
-     reformatCategoryName(category.name)
-   );
+  const formattedCategories = categories.map((category) =>
+    reformatCategoryName(category.name)
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,7 +40,7 @@ export default function CategoryPanel({}: { name: Category[] }) {
   const handleContinueClick = () => {
     if (selectedIndex !== null) {
       router.push(`/customizePage/${formattedCategories[selectedIndex]}`);
-    } 
+    }
   };
 
   return (
@@ -75,7 +75,7 @@ export default function CategoryPanel({}: { name: Category[] }) {
         onClick={handleContinueClick}
         aria-label="continue to customize page"
         disabled={selectedIndex === null}
-        className="gap-2 mb-10 continue-btn md:min-w-50 md:flex-space-between"
+        className="continue-btn m-7 min-w-70 flex-space-between"
         type="button"
       >
         Continue
