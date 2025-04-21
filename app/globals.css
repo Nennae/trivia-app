@@ -54,7 +54,8 @@ body {
   .results-btn {
     @apply flex justify-end  gap-20 border-1 border-dark dark:border-light p-2 w-full text-center min-w-80 md:min-w-115 md:justify-around;
   }
-  .pagination-btns {
+  .pagination-btns,
+  .continue-btn {
     @apply border-1 border-dark dark:border-light p-3 flex items-center;
     &:hover {
       @apply bg-dark dark:bg-lilac dark:text-dark text-light transition-all duration-300;
@@ -70,14 +71,14 @@ body {
     @apply border-1 border-dark dark:border-light p-3 rounded-md min-w-50 inline-flex justify-between;
   }
   .question-card-icons {
-    @apply text-4xl content-end;
+    @apply text-4xl;
   }
   .question-card-header {
-    @apply flex-center p-5 mb-5 pb-5 border-b-1 border-light dark:border-dark;
+    @apply flex-center gap-4 p-5 mb-5 pb-5 border-b-1 border-light dark:border-dark;
   }
 
   .category-list {
-    @apply grid grid-cols-3 gap-4 md:grid-cols-4 p-10 ;
+    @apply grid grid-cols-3 gap-4 md:grid-cols-4 p-10;
   }
   .category-items {
     @apply flex flex-col items-center gap-5 text-center;
