@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuiz } from "@/context/QuizContext";
-import Button from "../button/button";
+import Button from "../buttons/start-button";
 
 export default function ScoreCard() {
   const { getScore, questions } = useQuiz();

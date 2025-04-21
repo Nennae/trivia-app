@@ -1,4 +1,3 @@
-// components/button/answer-buttons.tsx
 "use client";
 
 import { useState, useEffect } from "react";

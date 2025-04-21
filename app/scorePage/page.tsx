@@ -1,7 +1,7 @@
 "use client";
 
 import ScoreCard from "../components/cards/score-card";
-import ResultButton from "../components/button/result-button";
+import ResultButton from "../components/buttons/result-button";
 import ResultDetails from "../components/result-details/result-details";
 import { useQuiz } from "@/context/QuizContext";
 

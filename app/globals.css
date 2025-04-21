@@ -31,7 +31,7 @@ body {
 
 @layer components {
   .button {
-    @apply bg-green text-dark rounded-md p-2 min-w-60;
+    @apply bg-green text-dark rounded-md p-3 min-w-80 md:min-w-110 font-semibold text-center text-lg;
     &:hover {
       @apply bg-dark-green text-light transition-all duration-300;
     }
@@ -90,10 +90,17 @@ body {
     }
   }
   .category-title {
-    @apply flex-center gap-4 border-dark border-1 dark:border-light max-w-80 md:max-w-95 m-auto p-5 rounded-lg;
+    @apply flex-center gap-4 dark-mode-style border-dark border-1 dark:border-light max-w-80 md:max-w-110 m-auto p-5 rounded-lg;
   }
-  .difficulty-btns {
+  .difficulty-btns,
+  .amount-btns {
     @apply border-1 border-dark dark:border-light p-2 rounded-lg w-20 md:w-30;
+    &:hover {
+      @apply bg-lilac text-dark transition-all duration-300;
+    }
+  }
+  .question-type-btns {
+    @apply border-1 border-dark dark:border-light p-2 rounded-lg w-35 md:w-50;
     &:hover {
       @apply bg-lilac text-dark transition-all duration-300;
     }
