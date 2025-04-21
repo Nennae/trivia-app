@@ -2,7 +2,7 @@
 
 import { useQuiz } from "@/context/QuizContext";
 import QuestionCard from "../cards/question-card";
-import AnswerButtons from "../button/answer-buttons";
+import AnswerButtons from "../buttons/answer-buttons";
 import Pagination from "../pagination/pagination";
 
 export default function QuestionSection() {

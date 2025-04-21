@@ -2,11 +2,11 @@
 
 import { useRouter } from "next/navigation";
 
-export default function Button() {
+export default function StartButton() {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push("/triviaPage"); // Navigate to the triviaPage
+    router.push("/triviaPage"); 
   };
 
   return (
