@@ -19,7 +19,11 @@ type QuizContextType = {
   }[];
   showDetails: boolean;
   setShowDetails: (show: boolean) => void;
-  resetQuiz: () => void;  
+  resetQuiz: () => void;
+  selectedCategory: string | null;
+  setSelectedCategory: (category: string) => void;
+  selectedDifficulty: string | null;
+  setSelectedDifficulty: (difficulty: string) => void;
 };
 
 const QuizContext = createContext<QuizContextType | undefined>(undefined);
@@ -37,6 +41,11 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [showDetails, setShowDetails] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedDifficulty, setSelectedDifficulty] = useState<string | null>(
+    null
+  );
+
 
   const setUserAnswer = (index: number, answer: string) => {
     setUserAnswers((prev) => {
@@ -86,6 +95,10 @@ export function QuizProvider({ children }: { children: React.ReactNode }) {
         showDetails,
         setShowDetails,
         resetQuiz,
+        selectedCategory,
+        setSelectedCategory,
+        selectedDifficulty,
+        setSelectedDifficulty,
       }}
     >
       {children}
