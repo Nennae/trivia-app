@@ -6,6 +6,7 @@ import { useQuiz } from "@/context/QuizContext";
 import Icons from "../../components/icons/icons";
 import { reformatCategoryName } from "@/utils/reformatStrings";
 import DifficultySelect from "@/app/components/dificulty-select/difficulty-select";
+import AmountSelect from "@/app/components/amount-select/amount-select";
 
 export default function CustomizePage() {
   const params = useParams();
@@ -30,8 +31,9 @@ export default function CustomizePage() {
           <h3>{selectedCategory}</h3>
         </div>
       )}
-      <div className="flex-center">
+      <div className="flex-center-column gap-10">
         <DifficultySelect />
+        <AmountSelect />
       </div>
     </div>
   );
