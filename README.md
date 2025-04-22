@@ -6,9 +6,11 @@ Trivia Application is an interactive quiz game where users can test their knowle
 ## Features
 - **Homepage**
   - Displays the app name and description
+  - Selection of trivia categories ( dynamic rout to selected category / customization page )
+ 
+- **Customize Page**
   - Start button to begin the game
-  - Selection of trivia categories
-  - Customization options for difficulty level, number of questions, and question type
+  - Customization options for difficulty level, number of questions, and question type (v.2.0 / not implemented yet - as of 2025-04-22 )
 
 - **Quiz Page**
   - Displays current question and total number of questions
@@ -21,7 +23,7 @@ Trivia Application is an interactive quiz game where users can test their knowle
   - Option to restart the game
   - Option to view game details, including correct answers and user responses
 
-- **Profile Management**
+- **Profile Management (v.2.0 / not implemented yet - as of 2025-04-22 )**
   - Login and registration functionality
   - Displays user profile with previous game history
   - Sorting options for game history (Lowest/Highest Score, Newest/Oldest)  
